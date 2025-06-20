@@ -1,0 +1,6 @@
+langchain
+sentence-transformers
+qdrant-client
+pymupdf
+nbformat
+ollama
