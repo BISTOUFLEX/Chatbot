@@ -1,5 +1,6 @@
 # Agent RAG Local
 
+
 Ce projet fournit un exemple minimal d'agent conversationnel qui fonctionne en local. Il applique la méthode **Retrieval-Augmented Generation** (RAG) pour répondre aux questions des étudiants du BUT SD à partir des supports de cours.
 
 ## Importation des données
@@ -9,9 +10,11 @@ Ce projet fournit un exemple minimal d'agent conversationnel qui fonctionne en l
 
 ## Installation des dépendances
 
+
 ```bash
 python install_dependencies.py
 ```
+
 
 ## Construction de l'index
 
@@ -21,6 +24,7 @@ Avant de pouvoir interroger l'agent, il faut extraire le texte des documents et 
 python main.py --build-index
 ```
 
+
 Cette commande :
 - extrait le texte des supports dans `preprocess/output/` ;
 - découpe les textes en « chunks » et génère leurs embeddings ;
@@ -29,6 +33,7 @@ Cette commande :
 ## Utilisation de l'agent
 
 Une fois l'index créé, lancez simplement :
+
 
 ```bash
 python main.py

@@ -12,6 +12,7 @@ class LocalRAGAgent:
     def __init__(self) -> None:
         self.preprocessor = Preprocessor()
         self.index_builder = FaissIndexBuilder()
+
         self.retriever = Retriever()
         self.generator = AnswerGenerator()
 
