@@ -3,7 +3,7 @@
 import argparse
 
 from preprocess.extract_text import Preprocessor
-from vector_store.build_qdrant_index import QdrantIndexBuilder
+from vector_store.build_faiss_index import FaissIndexBuilder
 from retrieval.search_chunks import Retriever
 from generation.generate_answer import AnswerGenerator
 
@@ -11,7 +11,7 @@ from generation.generate_answer import AnswerGenerator
 class LocalRAGAgent:
     def __init__(self) -> None:
         self.preprocessor = Preprocessor()
-        self.index_builder = QdrantIndexBuilder()
+        self.index_builder = FaissIndexBuilder()
         self.retriever = Retriever()
         self.generator = AnswerGenerator()
 

@@ -25,7 +25,7 @@ python main.py
 ## Project structure
 
 - `preprocess/extract_text.py` – `Preprocessor` class for extracting text from supports
-- `vector_store/build_qdrant_index.py` – `QdrantIndexBuilder` class to build the vector store
+- `vector_store/build_faiss_index.py` – `FaissIndexBuilder` class to build the vector store
 - `retrieval/search_chunks.py` – `Retriever` class to search for relevant chunks
 - `generation/generate_answer.py` – `AnswerGenerator` class wrapping the Ollama model
 - `main.py` – `LocalRAGAgent` command line interface

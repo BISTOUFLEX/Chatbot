@@ -1,6 +1,6 @@
 langchain
 sentence-transformers
-qdrant-client
+faiss-cpu
 pymupdf
 nbformat
 ollama

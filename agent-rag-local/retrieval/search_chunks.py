@@ -1,22 +1,21 @@
-"""Retrieve relevant text chunks from Qdrant."""
+"""Retrieve relevant text chunks from a FAISS index."""
 
 from pathlib import Path
 from typing import List
 
 from sentence_transformers import SentenceTransformer
-from qdrant_client import QdrantClient
+from langchain.vectorstores import FAISS
 
 
 class Retriever:
-    def __init__(self, collection_name: str = "but_sd_supports") -> None:
-        self.collection_name = collection_name
+    def __init__(self, index_dir: Path | None = None) -> None:
         self.model = SentenceTransformer("all-MiniLM-L6-v2")
-        self.client = QdrantClient(path=str(Path.home() / ".qdrant"))
+        self.index_dir = index_dir or Path(__file__).resolve().parents[1] / "vector_store" / "faiss_index"
+        self.vector_store = FAISS.load_local(str(self.index_dir), self.model)
 
     def search(self, query: str, k: int = 3) -> List[str]:
-        vector = self.model.encode([query])[0].tolist()
-        results = self.client.search(collection_name=self.collection_name, query_vector=vector, limit=k)
-        return [r.payload.get("text", "") for r in results]
+        docs = self.vector_store.similarity_search(query, k=k)
+        return [d.page_content for d in docs]
 
 
 if __name__ == "__main__":
