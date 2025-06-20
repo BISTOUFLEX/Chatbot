@@ -1,0 +1,6 @@
+langchain
+sentence-transformers
+faiss-cpu
+pymupdf
+nbformat
+ollama
