@@ -1,4 +1,3 @@
- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
 diff --git a//dev/null b/agent-rag-local/README.md
 index 0000000000000000000000000000000000000000..2eee713a636aae359717207ce82a96a9da87e7a0 100644
 --- a//dev/null
@@ -37,6 +36,3 @@ index 0000000000000000000000000000000000000000..2eee713a636aae359717207ce82a96a9
 +- `main.py` – `LocalRAGAgent` command line interface
 +
 +All dependencies are listed in `requirements.txt`.
- 
-EOF
-)
