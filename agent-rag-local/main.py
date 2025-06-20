@@ -3,7 +3,7 @@
 import argparse
 
 from preprocess.extract_text import Preprocessor
-from vector_store.build_qdrant_index import QdrantIndexBuilder
+from vector_store.build_faiss_index import FaissIndexBuilder
 from retrieval.search_chunks import Retriever
 from generation.generate_answer import AnswerGenerator
 
