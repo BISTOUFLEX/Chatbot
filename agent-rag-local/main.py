@@ -11,7 +11,7 @@ from generation.generate_answer import AnswerGenerator
 class LocalRAGAgent:
     def __init__(self) -> None:
         self.preprocessor = Preprocessor()
-        self.index_builder = FaissIndexBuilder()
+        self.index_builder = QdrantIndexBuilder()
         self.retriever = Retriever()
         self.generator = AnswerGenerator()
 

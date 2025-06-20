@@ -23,6 +23,7 @@ class Retriever:
         return [self.chunks[i] for i in I[0] if i < len(self.chunks)]
 
 
+
 if __name__ == "__main__":
     for c in Retriever().search("qu'est ce qu'une fonction ?"):
         print("--", c[:80])
