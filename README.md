@@ -1,4 +1,5 @@
 #Chatbot
+
 Contexte : Tu es un ingénieur Data/IA chargé de développer un agent conversationnel local, sans appel à des API externes, pour aider des étudiants du BUT SD aux modules « Bases de la programmation » (semestres 1 & 2). L’agent doit utiliser la méthode Retrieval-Augmented Generation (RAG) pour puiser ses réponses dans des supports de cours (PDF, notebooks), et s’exécuter entièrement en local.  
 Énoncé du projet (SAE6.EMS.01) :  
 - Prétraitement des supports (extraction de texte depuis PDF et notebooks)  
@@ -42,3 +43,22 @@ Plan détaillé à implémenter :
 ├── README.md  
 └── requirements.txt  
 Contraintes techniques : Python 3.10+, LangChain pour orchestrer la RAG, modèle Ollama local, FAISS en local, SentenceTransformers all-MiniLM-L6-v2, extraction PDF locale, exécution 100% locale.
+
+
+## Utilisation rapide
+
+1. Décompressez `Supports programmation.zip` et placez les PDF et notebooks dans `agent-rag-local/supports/`.
+2. Installez les dépendances :
+   ```bash
+   python agent-rag-local/install_dependencies.py
+   ```
+3. Construisez l'index vectoriel :
+   ```bash
+   python agent-rag-local/main.py --build-index
+   ```
+4. Lancez l'agent et posez vos questions :
+   ```bash
+   python agent-rag-local/main.py
+   ```
+
+

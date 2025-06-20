@@ -1,34 +1,52 @@
 # Agent RAG Local
 
-This project implements a simple Retrieval-Augmented Generation agent that runs entirely locally. It processes PDF and Jupyter notebook course materials for the BUT SD programming modules and allows students to ask questions via a command line interface.
 
-## Setup
+Ce projet fournit un exemple minimal d'agent conversationnel qui fonctionne en local. Il applique la méthode **Retrieval-Augmented Generation** (RAG) pour répondre aux questions des étudiants du BUT SD à partir des supports de cours.
+
+## Importation des données
+
+1. Décompressez l'archive `Supports programmation.zip` située à la racine du dépôt.
+2. Copiez les fichiers PDF et notebooks dans le dossier `supports/` du répertoire `agent-rag-local` (à créer si besoin).
+
+## Installation des dépendances
+
 
 ```bash
 python install_dependencies.py
 ```
 
-## Usage
 
-Build the vector index (only needed the first time or when supports change):
+## Construction de l'index
+
+Avant de pouvoir interroger l'agent, il faut extraire le texte des documents et construire l'index vectoriel FAISS :
 
 ```bash
 python main.py --build-index
 ```
 
-Then start asking questions:
+
+Cette commande :
+- extrait le texte des supports dans `preprocess/output/` ;
+- découpe les textes en « chunks » et génère leurs embeddings ;
+- enregistre l'index FAISS et les métadonnées des chunks dans `vector_store/`.
+
+## Utilisation de l'agent
+
+Une fois l'index créé, lancez simplement :
+
 
 ```bash
 python main.py
 ```
 
-## Project structure
+Saisissez votre question après l'invite `Question >` et l'agent répondra en utilisant les passages de cours pertinents.
 
-- `preprocess/extract_text.py` – `Preprocessor` class for extracting text from supports
-- `vector_store/build_faiss_index.py` – `FaissIndexBuilder` class to build the vector store
-- `retrieval/search_chunks.py` – `Retriever` class to search for relevant chunks
-- `generation/generate_answer.py` – `AnswerGenerator` class wrapping the Ollama model
-- `main.py` – `LocalRAGAgent` command line interface
+## Organisation du projet
 
-All dependencies are listed in `requirements.txt`.
+- `preprocess/extract_text.py` : extraction du texte des supports
+- `vector_store/build_faiss_index.py` : création de l'index FAISS
+- `retrieval/search_chunks.py` : recherche des chunks pertinents
+- `generation/generate_answer.py` : génération de la réponse via Ollama
+- `main.py` : interface en ligne de commande
+- `requirements.txt` : liste des dépendances
 
