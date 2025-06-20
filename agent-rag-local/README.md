@@ -24,10 +24,10 @@ python main.py
 
 ## Project structure
 
-- `preprocess/extract_text.py` – extract text from PDFs and notebooks
-- `vector_store/build_qdrant_index.py` – chunk documents and build the Qdrant vector store
-- `retrieval/search_chunks.py` – retrieve relevant chunks for a question
-- `generation/generate_answer.py` – call the local Ollama model with retrieved context
-- `main.py` – command line interface
+- `preprocess/extract_text.py` – `Preprocessor` class for extracting text from supports
+- `vector_store/build_qdrant_index.py` – `QdrantIndexBuilder` class to build the vector store
+- `retrieval/search_chunks.py` – `Retriever` class to search for relevant chunks
+- `generation/generate_answer.py` – `AnswerGenerator` class wrapping the Ollama model
+- `main.py` – `LocalRAGAgent` command line interface
 
 All dependencies are listed in `requirements.txt`.
